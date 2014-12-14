@@ -108,7 +108,7 @@ realdebrid.unrestrict('http://www.sockshare.com/file/3A6FF548272EA378', function
 ```
 Example output:
 ```javascript
-{ 
+{
     error: 0,
     file_name: '01ElIVX.png',
     file_size: '3.93MB',
@@ -141,4 +141,96 @@ realdebrid.getValidHosters(function (err, data) {
 Example output:
 ```javascript
 ["1fichier.com","desfichiers.com","dfichiers.com","1st-files.com","2shared.com","4shared.com","allmyvideos.net","asfile.com","bayfiles.com","beststreams.net","bitshare.com","canalplus.fr","catshare.net","cbs.com","crocko.com","cwtv.com","datafile.com","datafilehost.com","datei.to","ddlstorage.com","depfile.com","i-filez.com","divxstage.eu","dizzcloud.com","dl.free.fr","easybytez.com","extmatrix.com","filecloud.io","filefactory.com","fileflyer.com","filemonkey.in","fileom.com","fileover.net","fileparadox.in","filepost.com","filerio.com","filesabc.com","filesflash.com","filesflash.net","filesmonster.com","fileswap.com","putlocker.com","firedrive.com","freakshare.net","gigapeta.com","gigasize.com","gulfup.com","hugefiles.net","hulkshare.com","hulu.com","jumbofiles.com","junocloud.me","keep2share.cc","k2s.cc","keep2s.cc","k2share.cc","letitbit.net","load.to","luckyshare.net","mediafire.com","mega.co.nz","megashares.com","mixturevideo.com","mixturecloud.com","movshare.net","netload.in","novamov.com","nowdownload.eu","nowdownload.ch","nowdownload.sx","nowdownload.ag","nowdownload.at","nowvideo.eu","nowvideo.ch","nowvideo.sx","nowvideo.ag","nowvideo.at","oboom.com","purevid.com","rapidgator.net","rg.to","rapidshare.com","rarefile.net","redbunker.net","redtube.com","rutube.ru","scribd.com","secureupload.eu","sendspace.com","share-online.biz","shareflare.net","sky.fm","sockshare.com","soundcloud.com","speedyshare.com","lumfile.com","terafile.co","turbobit.net","tusfiles.net","ulozto.net","ultramegabit.com","unibytes.com","uploadable.ch","uploadc.com","uploaded.to","uploaded.net","ul.to","uploadhero.co","uploadhero.com","uploading.com","uploadlux.com","upstore.net","uptobox.com","userporn.com","veevr.com","vimeo.com","vip-file.com","wat.tv","youporn.com","youtube.com","yunfile.com","zippyshare.com"]
+```
+
+### realdebrid.downloadTorrent(magnetLink, fileExtensionFilter, callback)
+Get the download status of all torrents.
+```javascript
+    downloadTorrent(magnetLink, ['iso', 'img'], function(err, result) {
+         if(err){
+             console.log(err);
+         } else {
+             console.log(result);
+         }
+    });
+```
+
+Example output:
+```javascript
+{ id: '******', torrentId: '*******' }
+```
+
+### realdebrid.getTorrentsStatus(id, callback)
+Get the download status of all torrents.
+```javascript
+getTorrentsStatus(function(err, result){
+     if(err){
+         console.log(err);
+     } else {
+         console.log(result);
+     }
+});
+```
+
+Example output:
+```javascript
+{ error: 0,
+  total: '1',
+  current_page: 1,
+  last_page: 1,
+  list:
+   [ { id: '*******',
+       status: '0',
+       server: '6',
+       name: 'debian-7.0.0-i386-DVD-1.iso',
+       progress: 0,
+       seeders: 0,
+       speed: 0,
+       txt: '',
+       time: '1418514536',
+       date: '14/12/2014 00:48:56',
+       links: [ '******' ] } ] }
+```
+
+### realdebrid.getTorrentStatus(id, callback)
+Get the download status of a given torrent by its id file.
+```javascript
+getTorrentStatus(result.id, function(err, result){
+    if(err){
+        console.log(err);
+    } else {
+        console.log(result);
+    }
+});
+```
+
+Example output:
+```javascript
+{ id: '*******',
+  status: '0',
+  server: '6',
+  name: 'debian-7.0.0-i386-DVD-1.iso',
+  progress: 0,
+  seeders: 0,
+  speed: 0,
+  txt: '',
+  time: '1418514536',
+  date: '14/12/2014 00:48:56',
+  links: [ '' ] }
+```
+
+### realdebrid.deleteTorrentByTorrentId(torrentId, callback)
+Get the download status of a given torrent by its id file.
+```javascript
+    deleteTorrentByTorrentId(******, function(err, result){
+       console.log(!err ? 'OK' : 'KO');
+    });
+```
+
+### realdebrid.deleteTorrentById(id, callback)
+Get the download status of a given torrent by its id file.
+```javascript
+    deleteTorrentById(*******, function(err, result){
+       console.log(!err ? 'OK' : 'KO');
+    });
 ```

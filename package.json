@@ -20,7 +20,9 @@
   },
   "main": "index",
   "dependencies": {
-    "request": "^2.37.0"
+    "request": "^2.37.0",
+    "form-data": "^0.2.0",
+    "cheerio": "^0.18.0"
   },
   "scripts": {
     "test": "mocha --require should --bail --reporter spec test/test.js"
